@@ -9,6 +9,11 @@ function eventListeners(){
 function getResult(){
     const firstOutput = $("#firstCurrency").val();
     const secondOutput = $("#secondCurrency").val();
+    const value = parseFloat($("#amount").val());
 
-    Currency.calculate(firstOutput, secondOutput);
+    Currency.getK(firstOutput, secondOutput, k =>{
+        const result = value * k;
+        UI.displayResult(result);
+    });
+
 }

@@ -1,15 +1,17 @@
 class Currency{
-    static async calculate(firstOutput, secondOutput){
+    static getK(firstOutput, secondOutput, callback){
         const url = `https://api.exchangeratesapi.io/latest?base=${firstOutput}`;
-        let k;
+        let k = 1;
 
         Request.get(url)
         .then(data =>{
-            console.log(data.rates[secondOutput]);
+            k =  parseFloat(data.rates[secondOutput]);
+            callback(k);
         })
         .catch(error =>{
             console.error(error);
         })
+        
         
     }
 }
