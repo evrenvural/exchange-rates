@@ -16,4 +16,6 @@ function getResult(){
         UI.displayResult(result);
     });
 
+    UI.changeFirstWord(firstOutput);
+    UI.changeSecondWord(secondOutput);
 }
